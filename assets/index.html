@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #008CBA;} /* Blue */
+
+    </style>
+</head>
+<body>
+
+<h1>Flutter WebView</h1>
+
+<button class="button button1"
+        onclick="myFunction()">Show Battery Percentage
+</button>
+
+<p id="demo">Battery Percentage.</p>
+
+<script>
+function myFunction() {
+  window.flutter_inappwebview.callHandler('batteryLevel').then(function(result) {
+               console.log(result);
+               document.getElementById("demo").innerHTML = 'Battery Percentage : ' + result;
+             });
+}
+</script>
+
+</body>
+</html>
